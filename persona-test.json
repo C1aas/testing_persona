@@ -1,24 +1,36 @@
 {
-  "id": "conv-evil-002",
+  /* ---------- normal meta fields ---------- */
+  "title": "Conversation – security test",
+  "subtitle": "<img src=x onerror=alert('XSS‑subtitle')>",
+  "model-name": "gpt-4o-mini",
+  "model": "gpt-4o-mini",
+  "temperature": 0.2,
+  "top_p": 0.2,
+
+  /* ---------- message array (with trailing comma) ---------- */
   "messages": [
     {
-      "role": "user",
-      "content": "<img src=x onerror=\"alert('Direct XSS #1')\">",
+      "role": "system",
+      "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
     },
     {
-      "role": "assistant",
-      "content": "<svg/onload=alert('Direct XSS #2')>",
-    },
-  ],
-
-  "__proto__": {
-    "protoMessage": "<img src=x onerror=\"alert('Prototype-pollution XSS')\">",
-  },
+      "role": "hacker",                   // enum violation
+      "content": "<iframe src=javascript:alert('XSS-role')>"
+    },                                    // ← trailing comma inside array
+  ],                                      // ← trailing comma after array
 
   "constructor": {
     "prototype": {
-      "ctorMessage": "<img src=x onerror=\"alert('Constructor.prototype XSS')\">",
+      "evil": "<script>alert('XSS-constructor')</script>",
+      "hasOwnProperty": "()=>true",
     },
-  },
+  },                                      // ← trailing comma
 
-}
+  
+
+  /* ---------- optional arcana (valid shape, harmless) ---------- */
+  "arcana": {
+    "id": "tester/security‑arcana"
+  },                                       // ← trailing comma
+
+}                                          // ← final dangling comma
