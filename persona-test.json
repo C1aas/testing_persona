@@ -26,9 +26,6 @@
     },
   },    
 
-  
-
-  /* ---------- optional arcana (valid shape, harmless) ---------- */
   "arcana": {
     "id": "tester/security‑arcana"
   },   
