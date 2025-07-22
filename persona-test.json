@@ -1,0 +1,24 @@
+{
+  "id": "conv-evil-002",
+  "messages": [
+    {
+      "role": "user",
+      "content": "<img src=x onerror=\"alert('Direct XSS #1')\">",
+    },
+    {
+      "role": "assistant",
+      "content": "<svg/onload=alert('Direct XSS #2')>",
+    },
+  ],
+
+  "__proto__": {
+    "protoMessage": "<img src=x onerror=\"alert('Prototype-pollution XSS')\">",
+  },
+
+  "constructor": {
+    "prototype": {
+      "ctorMessage": "<img src=x onerror=\"alert('Constructor.prototype XSS')\">",
+    },
+  },
+
+}
