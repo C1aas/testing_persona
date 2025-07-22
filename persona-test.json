@@ -13,14 +13,8 @@
     {
       "role": "user",
       "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
-    },
-  ],
-  "constructor": {
-    "prototype": {
-      "evil": "<script>alert('XSS-constructor')</script>",
-      "hasOwnProperty": "()=>true"
     }
-  },
+  ],
   "arcana": {
     "id": "tester/security‑arcana"
   }
