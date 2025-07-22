@@ -1,5 +1,5 @@
 {
-  "title": "Conversation – security test2.0",
+  "title": "Conversation – security test3.0",
   "subtitle": "<img src=x onerror=alert('XSS‑subtitle')>",
   "model-name": "gpt-4o-mini",
   "model": "gpt-4o-mini",
@@ -11,9 +11,9 @@
       "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
     },
     {
-      "role": "hacker",
-      "content": "<iframe src=javascript:alert('XSS-role')>"
-    }
+      "role": "user",
+      "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
+    },
   ],
   "constructor": {
     "prototype": {
