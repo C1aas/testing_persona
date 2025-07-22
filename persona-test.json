@@ -1,33 +1,27 @@
 {
-
-  "title": "Conversation – security test",
-  "subtitle": "<img src=x onerror=alert('XSS‑subtitle')>",
-  "model-name": "gpt-4o-mini",
-  "model": "gpt-4o-mini",
-  "temperature": 0.2,
-  "top_p": 0.2,
-
-
-  "messages": [
-    {
-      "role": "system",
-      "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
+    "title": "Conversation – security test",
+    "subtitle": "<img src=x onerror=alert('XSS‑subtitle')>",
+    "model-name": "gpt-4o-mini",
+    "model": "gpt-4o-mini",
+    "temperature": 0.2,
+    "top_p": 0.2,
+    "messages": [
+        {
+            "role": "system",
+            "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
+        },
+        {
+            "role": "hacker",
+            "content": "<iframe src=javascript:alert('XSS-role')>"
+        }
+    ],
+    "constructor": {
+        "prototype": {
+            "evil": "<script>alert('XSS-constructor')</script>",
+            "hasOwnProperty": "()=>true"
+        }
     },
-    {
-      "role": "hacker",
-      "content": "<iframe src=javascript:alert('XSS-role')>"
-    },                                    
-  ],                 
-
-  "constructor": {
-    "prototype": {
-      "evil": "<script>alert('XSS-constructor')</script>",
-      "hasOwnProperty": "()=>true",
-    },
-  },    
-
-  "arcana": {
-    "id": "tester/security‑arcana"
-  },   
-
-} 
+    "arcana": {
+        "id": "tester/security‑arcana"
+    }
+}
