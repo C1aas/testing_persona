@@ -1,0 +1,15 @@
+{
+  "title": "Conversation – security test crash ",
+  "subtitle": "Subtitle test <img src=x onerror=alert('XSS‑subtitle')>",
+  "model-name": "gpt-4o-mini",
+  "model": "gpt-4o-mini",
+  "temperature": 0.2,
+  "top_p": 0.2,
+  "messages": [
+    {
+      "role": "system",
+      "content": "System ok"
+    }
+  ],
+  "bigField": "A".repeat(10_240),
+}
