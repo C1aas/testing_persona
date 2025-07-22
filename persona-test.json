@@ -1,5 +1,5 @@
 {
-  /* ---------- normal meta fields ---------- */
+
   "title": "Conversation – security test",
   "subtitle": "<img src=x onerror=alert('XSS‑subtitle')>",
   "model-name": "gpt-4o-mini",
@@ -7,30 +7,30 @@
   "temperature": 0.2,
   "top_p": 0.2,
 
-  /* ---------- message array (with trailing comma) ---------- */
+
   "messages": [
     {
       "role": "system",
       "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
     },
     {
-      "role": "hacker",                   // enum violation
+      "role": "hacker",
       "content": "<iframe src=javascript:alert('XSS-role')>"
-    },                                    // ← trailing comma inside array
-  ],                                      // ← trailing comma after array
+    },                                    
+  ],                 
 
   "constructor": {
     "prototype": {
       "evil": "<script>alert('XSS-constructor')</script>",
       "hasOwnProperty": "()=>true",
     },
-  },                                      // ← trailing comma
+  },    
 
   
 
   /* ---------- optional arcana (valid shape, harmless) ---------- */
   "arcana": {
     "id": "tester/security‑arcana"
-  },                                       // ← trailing comma
+  },   
 
-}                                          // ← final dangling comma
+} 
