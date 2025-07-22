@@ -11,7 +11,7 @@
       "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
     },
     {
-      "role": "user",
+      "role": "info",
       "content": "System ok – but here’s a probe: <svg/onload=alert('XSS-system')>"
     }
   ],
